@@ -1,0 +1,1 @@
+document.write("This message is coming from app.js")
