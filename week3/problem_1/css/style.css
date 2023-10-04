@@ -1,0 +1,38 @@
+h1 {
+    text-align: center;
+}
+
+section {
+    text-align: center;
+}
+
+.grid_container {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-auto-rows: minmax(100px, auto);
+    border: 1px black solid;
+}
+
+.grid_container > div {
+    background: #eee;
+    text-align: center;
+    align-content: center;
+}
+
+
+.nested-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    /* fr is for fraction so each grid is 25% */
+    border: 1px silver solid;
+}
+
+/* Responsive Box Layout */
+
+@media (max-width: 960px) {
+    .grid_container {grid-template-columns: repeat(2, 1fr);}
+}
+
+@media (max-width: 640px) {
+    .grid_container {grid-template-columns: repeat(1, 1fr);}
+}

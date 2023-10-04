@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../problem_1/css/style.css" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <h1>Problem 1</h1>
+    <section>
+      Create a flexible grid with 1 row and 4 columns. The width of each column
+      is 25% of the window size. This percentage width must be maintained even
+      if the page is resized. Each cell of the grid can contain another 1x4
+      flexible grid. The border of the grid must be 1px black. Perform the
+      following operations based on the value of window size: If the window size
+      is less than 960px, then the 1x4 flexible grid becomes a 2x2 grid. That
+      is, the 3rd and 4th columns slide down onto the 2nd row. If the window
+      size is less than 640px, then the 1x4 flexible grid becomes 4x1 grid. Each
+      column slides under the one before it. The 2nd column slides under the
+      1st, the 3rd slides under the 2nd, and the 4th slides under the 3rd. DO
+      NOT USE BOOTSTRAP
+    </section>
+    <div class="grid_container">
+      <div class="nested-grid">
+        <div>1</div>
+        <div>1</div>
+        <div>1</div>
+        <div>1</div>
+      </div>
+      <div class="nested-grid">
+        <div>2</div>
+        <div>2</div>
+        <div>2</div>
+        <div>2</div>
+      </div>
+      <div class="nested-grid">
+        <div>3</div>
+        <div>3</div>
+        <div>3</div>
+        <div>3</div>
+      </div>
+      <div class="nested-grid">
+        <div>4</div>
+        <div>4</div>
+        <div>4</div>
+        <div>4</div>
+      </div>
+    </div>
+  </body>
 </html>
