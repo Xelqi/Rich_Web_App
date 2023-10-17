@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="search-wrapper">
+      <input type="text" placeholder="Username" id="search-box" />
+      <button onclick="find_user()">Search</button>
+    </div>
+    <div class="wrapper">
+      <div class="l-container">
+        <h4>User Profile</h4>
+        <div>
+          <img id="pfp" src="" alt="Profile Photo" />
+        </div>
+        <div id="name">Name :</div>
+        <div id="uname">Username :</div>
+        <div id="email">Email :</div>
+        <div>
+          Location :
+          <a id="location" href=""></a>
+        </div>
+        <div id="No-gist">No. of Gists :</div>
+      </div>
+      <div class="r-container">
+        <h4>User Repos</h4>
+        <div class="repo-content"></div>
+      </div>
+    </div>
+  </body>
+</html>

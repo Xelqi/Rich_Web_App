@@ -8,16 +8,19 @@
     <script src="script.js"></script>
   </head>
   <body>
+    <h2>Phone Directory</h2>
+    <div class="centerdiv">
     <div class="add-contact-wrapper">
-        <form id="contact-form" onsubmit="  add_contact(event)">
+        <form id="contact-form" onsubmit="add_contact(event)">
           <input type="text" name="cname" id="cname" placeholder="Contact Name" required pattern="[A-Za-z\s]{1,20}" title="Only letters & Max 20" />
           <input type="tel" name="ph-no" id="ph-no" placeholder="Mobile Number" required pattern="\d{10}" title="Mobile Number should contain exactly 10 digits." />
           <input type="email" name="email" id="email" placeholder="Email" required maxlength="40" title="Max 40 characters" autocomplete="off"/>
           <input type="submit" value="Add Contact" />
         </form>
-      </div>           
+      </div>   
+    </div>  
     <div class="searchbar">
-        <h2>Find Contact by Mobile</h3>
+        <h3>Find Contact by Mobile</h3>
         <input type="tel" name="sbar" id="sbar" onkeyup="search_bar()" placeholder="085..." autocomplete="off"/>
     </div>
     <div class="contact-table">

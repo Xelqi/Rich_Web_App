@@ -26,6 +26,7 @@ function add_contact(event) {
     table.children[0].appendChild(row);
     // Reset input boxes after button pressed
     document.getElementById("contact-form").reset();
+    odd_num_bg();
   }
 }
 
@@ -66,56 +67,82 @@ function search_bar() {
   }
 }
 var sortCount = 0;
-var originalRows = []; // Store a copy of the original rows
+var originalRows = new Map();
 
 function sort_alph() {
-  var table = document.getElementById("contacts");
-  var rows = table.getElementsByTagName("tr");
+  var tables = document.querySelectorAll("#contacts");
 
-  // If originalRows is empty, store a copy of the original rows
-  if (originalRows.length === 0) {
-    originalRows = Array.from(rows).slice(1);
-  }
-
-  var sortedRows;
-
-  if (sortCount % 2 === 0) {
-    // Sort in ascending order
-    sortedRows = originalRows.slice().sort(function (a, b) {
-      var nameA = a.getElementsByTagName("td")[0].textContent.toUpperCase();
-      var nameB = b.getElementsByTagName("td")[0].textContent.toUpperCase();
-      return nameA.localeCompare(nameB);
-    });
-  } else {
-    // Sort in descending order
-    sortedRows = originalRows.slice().sort(function (a, b) {
-      var nameA = a.getElementsByTagName("td")[0].textContent.toUpperCase();
-      var nameB = b.getElementsByTagName("td")[0].textContent.toUpperCase();
-      return nameB.localeCompare(nameA);
+  // If the originalRows Map is empty, store a copy of the original rows for each table
+  if (originalRows.size === 0) {
+    tables.forEach((table) => {
+      const rows = Array.from(table.rows).slice(1);
+      originalRows.set(table, rows);
     });
   }
 
-  // Remove existing rows
-  while (table.rows.length > 1) {
-    table.deleteRow(1);
-  }
+  tables.forEach((table) => {
+    var rows = Array.from(table.rows).slice(1);
+    var sortedRows;
 
-  // Add sorted rows back to the table
-  for (var i = 0; i < sortedRows.length; i++) {
-    table.appendChild(sortedRows[i]);
-  }
+    if (sortCount % 2 === 0) {
+      // Sort in ascending order
+      sortedRows = rows.slice().sort(function (a, b) {
+        var nameA = a.getElementsByTagName("td")[0].textContent.toUpperCase();
+        var nameB = b.getElementsByTagName("td")[0].textContent.toUpperCase();
+        return nameA.localeCompare(nameB);
+      });
+    } else {
+      // Sort in descending order
+      sortedRows = rows.slice().sort(function (a, b) {
+        var nameA = a.getElementsByTagName("td")[0].textContent.toUpperCase();
+        var nameB = b.getElementsByTagName("td")[0].textContent.toUpperCase();
+        return nameB.localeCompare(nameA);
+      });
+    }
+
+    // Add sorted rows back to the table
+    sortedRows.forEach((sortedRow) => {
+      table.appendChild(sortedRow);
+    });
+  });
 
   sortCount++;
   if (sortCount === 3) {
-    // Reset sorting and restore the original order
+    // Reset sorting and restore the original order for all tables
     sortCount = 0;
-    // Remove existing rows
-    while (table.rows.length > 1) {
-      table.deleteRow(1);
-    }
-    // Add the original rows back to the table
-    for (var i = 0; i < originalRows.length; i++) {
-      table.appendChild(originalRows[i]);
+    tables.forEach((table) => {
+      const original = originalRows.get(table);
+      // Remove existing rows
+      while (table.rows.length > 1) {
+        table.deleteRow(1);
+      }
+      // Add the original rows back to the table
+      original.forEach((row) => {
+        table.appendChild(row);
+      });
+    });
+  }
+}
+
+// JavaScript function to add background color to rows based on odd/even mobile numbers
+function odd_num_bg() {
+  var table = document.getElementById("contacts"); // Assuming the table has the id "contacts"
+  var rows = table.getElementsByTagName("tr");
+
+  for (var i = 1; i < rows.length; i++) {
+    var mobileColumn = rows[i].getElementsByTagName("td")[1]; // Assuming mobile number is in the second column
+
+    if (mobileColumn) {
+      var mobileNumber = mobileColumn.innerText.trim();
+      var mobileDigits = parseInt(mobileNumber);
+
+      if (mobileDigits % 2 === 1) {
+        rows[i].style.backgroundColor = "#f2f2f2"; // Odd mobile number
+      } else {
+        rows[i].style.backgroundColor = ""; // Even mobile number (remove background color)
+      }
     }
   }
 }
+
+// Call the function to add background color based on mobile numbers

@@ -2,18 +2,75 @@ body {
   background-color: rgb(211, 226, 216);
 }
 
+h2 {
+  text-align: center;
+}
+
+.centerdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-contact-wrapper {
+  display: inline-block;
+  border: purple 2px solid;
+  padding: 20px 10px 20px 10px;
+  border-radius: 5px;
+  background-color: lightsteelblue;
+}
+
+#contact-form {
+  padding: 20px 10px 20px 10px;
+}
+
+#contact-form input {
+  padding: 5px;
+  border: 1px none;
+}
+
+#contact-form input:last-child {
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+/* Search Bar Styling */
+.searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Vertically center align content */
+}
+
+.searchbar input {
+  padding: 5px;
+  border: 1px solid silver;
+}
+
+.searchbar h3 {
+  margin-right: 10px; /* Add some space between the heading and input */
+}
+
+/* Table styling  */
+
+.contact-table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
 table {
   border-spacing: 0;
-  width: 80%;
-  border: 1px solid #dddd;
+  border: 1px solid #000000dd;
+}
+
+th {
+  background-color: lightsteelblue;
 }
 
 th,
 td {
   text-align: left;
   padding: 15px;
-}
-
-tr:nth-child(even) {
-  background-color: rgb(153, 153, 197);
+  border: 1px solid black;
 }

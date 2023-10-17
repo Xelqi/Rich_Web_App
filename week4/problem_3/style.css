@@ -1,0 +1,65 @@
+/* Search Bar and Button Styling */
+
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.search-wrapper input {
+    padding: 5px;
+    width: 15%;
+}
+
+.search-wrapper button{
+    border-radius: 13px;
+    border: 1px solid black;
+    margin-left: 20px;
+}
+
+/* Style for wrapper holding left and right container */
+
+.wrapper {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+/* Styling Left Container */
+
+.l-container {
+    margin-right: 30px;
+}
+
+
+.l-container > div {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+
+/* Styling Right Container */
+
+.rep-container {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.r-container {
+    max-height: 300px;
+    max-width: 300px;
+    min-width: 300px;
+    position: relative;
+}
+
+.repo-content {
+    max-height: 300px;
+    overflow-y: auto; /* Make the content scrollable */
+}
+
+/* Headings style */
+
+.headings {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+}
