@@ -1,1 +1,2 @@
-# Rich_Web_App
+#Rich Web Applications
+This is a repo for my lecturer to see my work
