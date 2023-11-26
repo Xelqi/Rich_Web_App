@@ -1,0 +1,18 @@
+#hour-input {
+    width: 20%;
+    margin: 3px;
+}
+
+#minute-input {
+    width: 20%;
+    margin: 3px;
+}
+
+#second-input {
+    width: 20%;
+    margin: 3px;
+}
+
+#start-btn {
+    width: 10%;
+}

@@ -46,6 +46,18 @@ function add_note() {
   document.querySelector(".wrapper").appendChild(noteContainer);
 }
 
+function edit_note(titleElement, descriptionElement) {
+  const newTitle = prompt("Edit the title:", titleElement.textContent);
+  const newDescription = prompt("Edit the description:", descriptionElement.textContent);
+
+  if (newTitle !== null) {
+    titleElement.textContent = newTitle;
+  }
+  if (newDescription !== null) {
+    descriptionElement.textContent = newDescription;
+  }
+}
+
 function delete_note(noteContainer) {
   noteContainer.parentElement.removeChild(noteContainer);
 }
